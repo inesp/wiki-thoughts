@@ -25,7 +25,7 @@ git reset <file/folder>
 
 Lose all changes on existing files:
 ```bash
-git reset --hard
+git reset --hard  # cannot do hard reset with paths
 git checkout <file/folder>
 ```
 
@@ -34,9 +34,11 @@ If you do it with git's clean command, you might delete the
 wrong files and the delete files will trully be gone!
 If you still wish to run git clean, first run with `-n` to 
 test run the command, to see which  it will delete. 
+(`-d` is for directories, `-f` is needed because git configuration
+variable `clean.requireForce` is usually set to true)
 ```bash
-git clean -nf
-git clean -f
+git clean -nfd
+git clean -fd
 ```
 
 # Check status and changes
