@@ -96,10 +96,22 @@ git log --follow -p <file>
 ```
 The `-p` option creates a patch for every change. This makes it easy to see what the change was.
 
+## Search
+
+### Search the history
+
 Show all commits adding or removing the string "func_name":
 ```bash
 git log -S "func_name"
 git log -S "func_name" -p
 git log -S "func_name" --stat
 git lg -S "func_name"
+```
+
+## Search the repository as it is in this moment (no history)
+
+Show all occurences of a string (or regex) in the repository. By adding `-- "*.py"` the results are limited to certain files:
+```bash
+git grep "def func_name"
+git grep "def func_name" -- "*.py"
 ```
